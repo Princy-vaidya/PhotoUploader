@@ -112,7 +112,7 @@ export default function UploadPhotoScreen(props) {
     setSelectType(item.node.type);
     setItem({node: item.node, Id: props.route.params.Id});
 
-    console.log('image');
+    console.log('image',{node: item.node, Id: props.route.params.Id});
   };
 
   /**************************** Tab Container ********************************************************/
@@ -150,7 +150,10 @@ export default function UploadPhotoScreen(props) {
       response => {
         setCameraImage(true);
         setSingleImage(response.uri);
-        setItem(response);
+        let image= response.uri;
+        setItem({node:{image:image}, Id: props.route.params.Id});
+
+        console.log('item pic',{node:{image:image}, Id: props.route.params.Id})
       },
     );
   };
@@ -166,7 +169,7 @@ export default function UploadPhotoScreen(props) {
             style={{height: 20, width: 20}}
           />
 
-          <Text style={styles.headerText}>Upload Photo</Text>
+          <Text style={styles.headerText}>UPLOAD PHOTO</Text>
         </TouchableOpacity>
 
         <View style={styles.uploadButton}>
@@ -195,6 +198,7 @@ export default function UploadPhotoScreen(props) {
       } else {
         if (photolist.length == 0) {
           await setValuesInStorage('imagelist', JSON.stringify([Item]));
+          
         } else {
           await setValuesInStorage(
             'imagelist',

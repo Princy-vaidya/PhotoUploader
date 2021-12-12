@@ -31,11 +31,16 @@ export default function PhotoList(props) {
 
   const getPhotoslist = async () => {
     let photolist = await getValuesFormStorage('imagelist');
-    let list = [...photo, ...JSON.parse(photolist)];
+    let list=[];
+    if (photolist.length==0){
+     list =JSON.parse(photolist);
+    }else{
+    list = [...photo, ...JSON.parse(photolist)];
+    }
     let newList = list.filter(item => item.Id == props.route.params.Id);
     setPhoto(newList);
-
-    console.log('photo...', photo);
+     console.log('check',newList)
+    
   };
 
   const onFavSelect = async (index, item) => {
@@ -63,7 +68,7 @@ export default function PhotoList(props) {
             style={{height: 20, width: 20}}
           />
 
-          <Text style={styles.headerText}>Photos</Text>
+          <Text style={styles.headerText}>PHOTOS</Text>
         </TouchableOpacity>
 
         <View style={styles.uploadButton}>

@@ -11,6 +11,7 @@ import {COLORS, FONT, HEIGHT, WIDTH} from '../../Utils/constants';
 import ImageLoad from 'react-native-image-placeholder';
 
 export function PhotoItem(props) {
+console.log('ppppp',props.item)
   return (
     <>
       <View style={styles.imageContainer}>

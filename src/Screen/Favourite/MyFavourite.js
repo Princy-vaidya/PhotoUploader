@@ -65,7 +65,7 @@ export default function MyFavourite(props) {
             style={{height: 20, width: 20}}
           />
 
-          <Text style={styles.headerText}>My Favourite</Text>
+          <Text style={styles.headerText}>MY FAVOURITE</Text>
           <Image
             source={require('../../Assets/Images/unlike.png')}
             style={{width: 20, height: 20, left: 5, tintColor: 'red'}}
