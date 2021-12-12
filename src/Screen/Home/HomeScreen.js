@@ -62,6 +62,7 @@ export default function HomeScreen(props) {
     ];
     setCategory(newCategorylist);
     setModalVisible(!modalVisible);
+    setFileName('')
     try {
       await setValuesInStorage('categorylist', JSON.stringify(newCategorylist));
       console.log('new', newCategorylist);

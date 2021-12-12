@@ -151,7 +151,7 @@ export default function UploadPhotoScreen(props) {
         setCameraImage(true);
         setSingleImage(response.uri);
         let image= response.uri;
-        setItem({node:{image:image}, Id: props.route.params.Id});
+        setItem({node:{image:{uri:image}}, Id: props.route.params.Id});
 
         console.log('item pic',{node:{image:image}, Id: props.route.params.Id})
       },

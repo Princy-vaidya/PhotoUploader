@@ -35,6 +35,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PhotoUploader want to access photos of your device.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>PhotoUploader want to access photos of your device.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
 	<key>UILaunchStoryboardName</key>

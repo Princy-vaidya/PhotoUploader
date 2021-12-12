@@ -23,7 +23,8 @@ import {
 
 export default function PhotoList(props) {
   const [photo, setPhoto] = useState([]);
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState(false); 
+  const[imageList,setImageList]=useState([]);
 
   useEffect(() => {
     getPhotoslist();
@@ -34,8 +35,10 @@ export default function PhotoList(props) {
     let list=[];
     if (photolist.length==0){
      list =JSON.parse(photolist);
+     setImageList(list)
     }else{
     list = [...photo, ...JSON.parse(photolist)];
+    setImageList(list)
     }
     let newList = list.filter(item => item.Id == props.route.params.Id);
     setPhoto(newList);
@@ -47,11 +50,9 @@ export default function PhotoList(props) {
     let listArray = photo;
     setLike(!like);
     listArray[index].fav = !listArray[index].fav;
-
-    //    newArray = data.filter((item) => item.select === true);
     setPhoto(listArray);
     try {
-      await setValuesInStorage('imagelist', JSON.stringify(photo));
+      await setValuesInStorage('imagelist',JSON.stringify([...imageList,photo]));
     } catch (e) {
       console.log('user detail', e);
     }

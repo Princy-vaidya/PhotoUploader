@@ -31,28 +31,15 @@ export default function MyFavourite(props) {
 
   const getPhotoslist = async () => {
     let photolist = await getValuesFormStorage('imagelist');
-    let list = [...photo, ...JSON.parse(photolist)];
-    let newList = list.filter(item => item.Id == props.route.params.Id);
-    let favList = newList.filter(item => item.fav == true);
+    
+    let list = JSON.parse(photolist);
+    let favList = list.filter(item => item.fav == true);
 
     setPhoto(favList);
-
-    console.log('photo...', photo);
+    console.log('photo...', [...photo, ...JSON.parse(photolist)]);
   };
 
-  const onFavSelect = async (index, item) => {
-    let listArray = photo;
-    setLike(!like);
-    listArray[index].fav = !listArray[index].fav;
-
-    //    newArray = data.filter((item) => item.select === true);
-    setPhoto(listArray);
-    try {
-      await setValuesInStorage('imagelist', JSON.stringify(photo));
-    } catch (e) {
-      console.log('user detail', e);
-    }
-  };
+  
 
   const HeaderContainer = props => {
     const {onBack, onFavourite} = props;

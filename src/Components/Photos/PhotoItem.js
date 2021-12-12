@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     height: 20,
   },
   imageStyle: {
-    height: HEIGHT * 0.16,
-    width: HEIGHT * 0.16,
+    height: HEIGHT * 0.14,
+    width: HEIGHT * 0.14,
     borderRadius: 10,
   },
 });

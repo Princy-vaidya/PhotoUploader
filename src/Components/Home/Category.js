@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingBottom: 15,
     borderBottomWidth: 0.5,
+    borderBottomColor:COLORS.TEXTCOLORS,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
   view: {
     color: 'white',
     padding: 5,
+    marginRight:10,
     backgroundColor: COLORS.PURPLECOLOR,
   },
   delete: {
